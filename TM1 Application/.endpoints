@@ -1,0 +1,27 @@
+Note the token is being stored as a cookie that auto send in the header with every request 
+This isnt the most secure however it will do the job 
+
+
+Authintication (/api/v1/auth)
+
+post /login "check credintianal and issue a token and attach it to the respose"
+{
+    "username":"username",
+    "password":"password"
+}
+
+post /logout "remove the cookie from the response"
+{
+
+}
+
+post /checkauth "Return eihter True or False accoring to states of the use if Authinticated"
+{
+
+}
+
+
+
+
+
+Cubes
