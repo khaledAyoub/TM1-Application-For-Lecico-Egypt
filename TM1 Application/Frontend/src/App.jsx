@@ -8,6 +8,7 @@ import Tm1pytestcube from './routes/Tm1pytestcube.jsx'
 import { BackendURL } from './config.js'
 
 import './App.css'
+import WarehouseDashBoard from './routes/dashboards/WarehouseDashBoard.jsx'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -20,7 +21,7 @@ function App() {
         const response = await fetch(
           `${BackendURL}/api/v1/auth/checkauth`,
           {
-            method: 'POST',
+            method: 'GET',
             credentials: 'include',
           }
         )
@@ -61,6 +62,7 @@ function App() {
       <Routes>
         <Route path="/" element={<WelcomePage setIsAuthenticated={setIsAuthenticated} />} />
         <Route path="/tm1pytestcube" element={<Tm1pytestcube setIsAuthenticated={setIsAuthenticated} />} />
+        <Route path="/warehouse" element={<WarehouseDashBoard />} />
       </Routes>
     </Router>
   )

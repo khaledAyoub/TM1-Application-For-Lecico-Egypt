@@ -49,5 +49,5 @@ def setData(connection, MDX, jsonData):
         status = "success"
     except e:
         print(e)
-        status = "faild"
+        status = "failed"
     return status ,cubeName

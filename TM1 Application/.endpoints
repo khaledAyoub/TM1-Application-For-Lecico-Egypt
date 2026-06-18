@@ -15,7 +15,7 @@ post /logout "remove the cookie from the response"
 
 }
 
-post /checkauth "Return eihter True or False accoring to states of the use if Authinticated"
+get /checkauth "Return eihter True or False accoring to states of the use if Authinticated"
 {
 
 }

@@ -48,6 +48,28 @@ A dedicated logging system operates independently from core logic to ensure full
 
 ---
 
+## 🗄️ Database Architecture (SQLite)
+
+The backend relies on a lightweight, local SQLite database for application state management, accessed via a centralized, thread-safe `DatabaseManager` object.
+
+### Core Tables
+
+| Table | Purpose | Security & Control |
+|---|---|---|
+| **Users** | Application-level user accounts | Passwords hashed securely via `bcrypt` |
+| **TM1_Instances** | TM1 server connection details | Stores host endpoints, ports, and SSL settings |
+| **TM1_Users** | TM1-specific credentials | Allows backend to query TM1 on behalf of users |
+| **Pages** | Application UI routes | Maintains available frontend views |
+| **PageAccess** | Role-Based Access Control | Maps Application `Users` to allowed `Pages` |
+
+### Key Manager Features
+
+- 🔒 **Thread-Safe Connections**: Prevents database lockups during concurrent REST API requests.
+- 🔄 **JSON-Ready Formatting**: Automatically converts SQLite rows into dictionary objects for seamless API responses.
+- 🛡️ **Centralized Safety**: Operations are wrapped in context managers to ensure transactions are safely committed or rolled back.
+
+---
+
 ## Frontend (React - Vite)
 
 The frontend delivers a clean, responsive, and user-friendly interface designed for smooth navigation and efficient interaction.
